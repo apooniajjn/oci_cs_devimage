@@ -1,6 +1,7 @@
-$(oci compute instance launch \
-    --display-name ${instance_name} \
+ocid_instance=$(oci compute instance launch \
+    --display-name "${display_name}" \
     --availability-domain "${availability_domain}" \
+    --compartment-id "${ocid_comp}" \
     --subnet-id "${ocid_subnet}" \
     --image-id "${ocid_image}" \
     --shape "${shape}" \
