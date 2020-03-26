@@ -9,5 +9,15 @@ fi
 oci os bucket create --namespace ${os_namespace} --name ${bucket_name} --compartment-id $ocid_comp
 oci os object put -bn ${bucket_name} --file ~/.ssh/id_rsa
 oci os object put -bn ${bucket_name} --file ~/.ssh/id_rsa.pub
-oci os preauth-request create --access-type ObjectRead -bn ${bucket_name} --name Keys --time-expires `date --date='tomorrow' +%Y-%m-%d` -on id_rsa
-oci os preauth-request create --access-type ObjectRead -bn ${bucket_name} --name Keys --time-expires `date --date='tomorrow' +%Y-%m-%d` -on id_rsa.pub
+access_uri_private=$(oci os preauth-request create --access-type ObjectRead \ 
+    -bn ${bucket_name} --name Keys \
+    --time-expires date --date=`'tomorrow' +%Y-%m-%d` \
+    -on id_rsa \
+    --query 'data[0]."access-uri"')
+access_uri_public=$(agreement=$(oci os preauth-request create --access-type ObjectRead \
+    -bn ${bucket_name} --name Keys --time-expires \
+    `date --date=`'tomorrow' +%Y-%m-%d` \
+    -on id_rsa.pub \
+    --query 'data[0]."access-uri")
+
+# Need id for deletion
