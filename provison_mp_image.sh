@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -z "$display_name"] || [ -z "$availability_domain"] || [ -z "$ocid_comp"] || [ -z "$shape"] || [ -z "$public_key"]
+if [ -z "$display_name" ] || [ -z "$availability_domain" ] || [ -z "$ocid_comp" ] || [ -z "$shape" ] || [ -z "$public_key" ]
 then
   echo "Error: missing variable definitions"
   exit 1
