@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Modify the following variables to reflect your enviroment
 export profile="TALLEN67"                           # Profile name in the OCI CLI config file
 export vcn_name="TestVCN"                           # Name of the VCN where the instance will live
 export subnet_name="Public Subnet-TestVCN"          # Name of the Public Subnet
