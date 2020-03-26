@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -z "$ocid_listing" ] || [ -z "$image_version"]
+if [ -z "$ocid_listing" ] || [ -z "$image_version" ]
 then
   echo "Error: missing variable definitions"
   exit 1
