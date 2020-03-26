@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -z "$image_name"] 
+if [ -z "$image_name" ] 
 then
   echo "Error: missing variable definitions"
   exit 1
