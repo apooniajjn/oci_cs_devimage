@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Modify the following variables to reflect your enviroment
-export profile="TALLEN67"                           # Profile name in the OCI CLI config file
 export vcn_name="TestVCN"                           # Name of the VCN where the instance will live
 export subnet_name="Public Subnet-TestVCN"          # Name of the Public Subnet
 export image_name="Oracle Cloud Developer Image"    # Name of the Marketplace Image
@@ -13,16 +12,16 @@ export public_key="/home/andy_tael/.ssh/id_rsa.pub" # Path to the SSH Public Key
 export private_key="/home/andy_tael/.ssh/id_rsa"    # Path to the SSH Private Key
 
 # Get OCID for Compartment
-export ocid_comp=$(oci iam compartment list --profile ${profile} --query "data [?\"name\"=='${comp_name}'] | [0].id" --raw-output); 
+export ocid_comp=$(oci iam compartment list --query "data [?\"name\"=='${comp_name}'] | [0].id" --raw-output); 
 
 # Get OCID for VCN
-export ocid_vcn=$(oci network vcn list --compartment-id ${ocid_comp} --profile ${profile} --query "data [?\"display-name\"=='${vcn_name}'] | [0].id" --raw-output)
+export ocid_vcn=$(oci network vcn list --compartment-id ${ocid_comp} --query "data [?\"display-name\"=='${vcn_name}'] | [0].id" --raw-output)
 
 # Get OCID for Subnet
-export ocid_subnet=$(oci network subnet list --compartment-id ${ocid_comp} --vcn-id ${ocid_vcn} --profile ${profile} --query "data [?\"display-name\"=='${subnet_name}'] | [0].id" --raw-output)
+export ocid_subnet=$(oci network subnet list --compartment-id ${ocid_comp} --vcn-id ${ocid_vcn} --query "data [?\"display-name\"=='${subnet_name}'] | [0].id" --raw-output)
 
 # Get Object Storage Namespace
-export os_namespace=$(oci os ns get --query data --profile ${profile} --raw-output)
+export os_namespace=$(oci os ns get --query data --raw-output)
 
 # AD Array
 declare -a ad_name=("AD-1" "AD-2" "AD-3")
@@ -30,8 +29,8 @@ declare -a ad_name=("AD-1" "AD-2" "AD-3")
 # Determine which AD the shape is available, over subscription not covered
 for i in "${ad_name[@]}"
 do
-	export availability_domain=$(oci iam availability-domain list --profile ${profile} --all --query 'data[?contains(name, `'"${i}"'`)] | [0].name' --raw-output)
-	export shape_avail=$(oci compute shape list --profile ${profile} --compartment-id ${ocid_comp} --availability-domain ${availability_domain} --profile ${profile} --query 'data[?contains(shape, `'"${shape}"'`)] | [0].shape' --raw-output)
+	export availability_domain=$(oci iam availability-domain list --all --query 'data[?contains(name, `'"${i}"'`)] | [0].name' --raw-output)
+	export shape_avail=$(oci compute shape list --compartment-id ${ocid_comp} --availability-domain ${availability_domain} --query 'data[?contains(shape, `'"${shape}"'`)] | [0].shape' --raw-output)
 
 	if [[ "${shape_avail}" = "${shape}" ]]; then
       		break
