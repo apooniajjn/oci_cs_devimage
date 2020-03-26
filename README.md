@@ -34,3 +34,8 @@ cd oci-cs_devimage
 
 source env-vars.sh
 
+.. all the steps
+
+
+get the private and public key (clumsy but necessary)
+
