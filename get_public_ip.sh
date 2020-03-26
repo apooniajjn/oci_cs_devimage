@@ -7,6 +7,6 @@ then
 fi
 
 echo "Public IP of" ${image_name}
-oci compute instance list-vnics --instance-id oci compute instance list-vnics \
+oci compute instance list-vnics --instance-id \
     --instance-id ${ocid_instance} --query 'data [0]."public-ip"' \
     --raw-output
