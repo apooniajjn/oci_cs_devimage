@@ -17,4 +17,4 @@ ocid_instance=$(oci compute instance launch \
     --wait-for-state RUNNING \
     --query 'data."id"' \
     --raw-output)
-echo "$ocid_instance"
+echo "OCID Instance: " $ocid_instance

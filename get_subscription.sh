@@ -13,4 +13,6 @@ subscription=$(oci compute pic subscription create --listing-id "${ocid_listing}
     --oracle-tou-link "${oracle_tou_link}" \
     --time-retrieved "${time_retrieved}" \
     --query 'data."listing-id"' \
-    --raw-output); echo "OCID Listing: " ${ocid_listing}; echo "Subscription: " ${subscription}
+    --raw-output)
+    echo "OCID Listing: " ${ocid_listing} 
+    echo "Subscription: " ${subscription}
