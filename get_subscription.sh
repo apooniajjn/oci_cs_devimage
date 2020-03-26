@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -z "$ocid_listing" ] || [ -z "$ocid_comp"] || [ -z "$image_version"] || [ -z "$signature"] || [ -z "$oracle_tou_link"] || [ -z "$time_retrieved"]
+if [ -z "$ocid_listing" ] || [ -z "$ocid_comp" ] || [ -z "$image_version" ] || [ -z "$signature" ] || [ -z "$oracle_tou_link" ] || [ -z "$time_retrieved" ]
 then
   echo "Error: missing variable definitions"
   exit 1
