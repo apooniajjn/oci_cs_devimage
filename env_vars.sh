@@ -10,6 +10,7 @@ export comp_name="TestCompartment"
 export instance_name=${image_name}
 export bucket_name="MyBucket"
 export public_key="/home/andy_tael/.ssh/id_rsa.pub"
+export private_key="/home/andy_tael/.ssh/id_rsa"
 export ocid_comp=$(oci iam compartment list --query "data [?\"name\"=='${comp_name}'] | [0].id" --raw-output); echo "Compartment OCID: " ${ocid_comp}
 export availability_domain=$(oci iam availability-domain list --all --query 'data[?contains(name, `'"${availability_domain}"'`)] | [0].name' --raw-output); echo "AD Name: " ${availability_domain}
 export ocid_vcn=$(oci network vcn list --compartment-id ${ocid_comp} --query "data [?\"display-name\"=='${vcn_name}'] | [0].id" --raw-output); echo "OCID VCN: " ${ocid_vcn}

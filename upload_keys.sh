@@ -7,8 +7,8 @@ then
 fi
 
 oci os bucket create --namespace ${os_namespace} --name ${bucket_name} --compartment-id $ocid_comp
-oci os object put -bn ${bucket_name} --file ~/.ssh/id_rsa
-oci os object put -bn ${bucket_name} --file ~/.ssh/id_rsa.pub
+oci os object put -bn ${bucket_name} --file ${private_key}
+oci os object put -bn ${bucket_name} --file ${public_key}
 access_uri_private=$(oci os preauth-request create --access-type ObjectRead \ 
     -bn ${bucket_name} --name Keys \
     --time-expires date --date=`'tomorrow' +%Y-%m-%d` \
