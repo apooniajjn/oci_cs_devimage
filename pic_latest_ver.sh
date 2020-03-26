@@ -21,3 +21,6 @@ available="false"
     fi
     echo_message "Version ${image_version} not available for your shape; skipping"
   done <<< "${version_list}"
+  echo "${version_list}"
+  echo "${image_version}"
+  echo "${ocid_image}"
