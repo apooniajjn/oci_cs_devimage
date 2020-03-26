@@ -15,8 +15,7 @@ ocid_instance=$(oci compute instance launch \
     --shape "${shape}" \
     --ssh-authorized-keys-file "${public_key}" \
     --assign-public-ip true \
-    --wait-for-state RUNNING)
- #   --raw-output)
+    --wait-for-state RUNNING \
+    --query 'data.id' \
+    --raw-output)
 echo "$ocid_instance"
-
-#  --query 'data.id' \
