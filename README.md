@@ -28,3 +28,9 @@ The key's randomart image is:
 |      ooOo+      |
 +----[SHA256]-----+
 andy_tael@cloudshell:~ (us-ashburn-1)$ 
+
+git clone https://github.com/andytael/oci_cs_devimage.git
+cd oci-cs_devimage
+
+source env-vars.sh
+
