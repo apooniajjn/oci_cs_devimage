@@ -1,3 +1,11 @@
+#!/bin/bash
+
+if [ -z "$ocid_listing" ] || [ -z "$image_version"] || [ -z "$agreement"] || [ -z "$time_retrieved"]
+then
+  echo "Error: missing variable definitions"
+  exit 1
+fi
+
 agreement=$(oci compute pic agreements get --listing-id "${ocid_listing}" \
     --resource-version  "${image_version}" \
     --query '[data."oracle-terms-of-use-link", data.signature, data."time-retrieved"] | join(`\n`,@)' \

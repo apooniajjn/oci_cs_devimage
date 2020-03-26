@@ -1,3 +1,12 @@
+#!/bin/bash
+
+if [ -z "$ocid_listing" ] || [ -z "$image_version"] || [ -z "$shape}"  ]
+then
+  echo "Error: missing variable definitions"
+  exit 1
+fi
+
+
 available="false"
   version_list=$(oci compute pic version list --listing-id "${ocid_listing}" \
     --query 'sort_by(data,&"time-published")[*].join('"'"' '"'"',["listing-resource-version", "listing-resource-id"]) | join(`\n`, reverse(@))' \

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 export availability_domain="AD-2"
 export vcn_name="TestVCN"
 export subnet_name="Public Subnet-TestVCN"

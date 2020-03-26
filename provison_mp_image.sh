@@ -1,3 +1,11 @@
+#!/bin/bash
+
+if [ -z "$display_name"] || [ -z "$availability_domain"] || [ -z "$ocid_comp"] || [ -z "$shape"] || [ -z "$public_key"]
+then
+  echo "Error: missing variable definitions"
+  exit 1
+fi
+
 ocid_instance=$(oci compute instance launch \
     --display-name "${display_name}" \
     --availability-domain "${availability_domain}" \
