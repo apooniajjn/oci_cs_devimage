@@ -1,5 +1,5 @@
 # Oracle Cloud Infrastructure Cloud Shell - Deploy a Market Place image
-Using OCI Cloud Shell and OCI CLI a to create an Oracle Cloud Developer Image. Note that all the output variables are abfuscated for security reasons.
+Using OCI Cloud Shell and OCI CLI a to create an Oracle Cloud Developer Image. Note that all the output variables are obfuscated for security reasons.
 
 ## Create SSH keys
 As we are deploying a VM and need access to the VM we need SSH keys and there are three options tht can be used
@@ -79,7 +79,9 @@ Subscription:  ocid1.appcataloglisting.oc1...
 andy_tael@cloudshell:oci_cs_devimage (us-ashburn-1)$ 
 ```
 ## Provison the image:
-
+```bash
+andy_tael@cloudshell:oci_cs_devimage (us-ashburn-1)$ source get_subscription.sh
+```
 ## SSH into the VM
 ssh -i ~/.ssh/id_rsa opc@xx.xx.xx.xx
 ## Start a SSH Tunnel and connect to the VM on your local machine
