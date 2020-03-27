@@ -80,7 +80,7 @@ andy_tael@cloudshell:oci_cs_devimage (us-ashburn-1)$
 ```
 ## Provison the image:
 ```bash
-andy_tael@cloudshell:oci_cs_devimage (us-ashburn-1)$ source get_subscription.sh
+andy_tael@cloudshell:oci_cs_devimage (us-ashburn-1)$ source provison_mp_image.sh
 ```
 ## SSH into the VM
 ssh -i ~/.ssh/id_rsa opc@xx.xx.xx.xx
