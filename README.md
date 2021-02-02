@@ -121,7 +121,7 @@ andy_tael@cloudshell:oci_cs_devimage (us-ashburn-1)$ ssh -i ~/.ssh/id_rsa opc@xx
 
 ## Start a SSH Tunnel and connect to the VM on your local machine
 
-If needed you can create an SSH tunnel from your local machine too. 
+If needed you can create an SSH tunnel from your local machine too.
 
 ```bash
 ssh...
